@@ -19,6 +19,8 @@ func main() {
 		- advancedProvider (provider details)
 	*/
 
+	//Get the API Token from https://flow.fluctuo.com/account/
+	apiToken := ""
 	queryMode := "simpleVehicle"
 	searchLocation := "WC2R"
 
@@ -30,6 +32,6 @@ func main() {
 	fmt.Println("Found geospatial data for", searchLocation)
 
 	fmt.Println("Sending GraphQL data request for", searchLocation)
-	graphql.RequestData(lat, lng, queryMode)
+	graphql.RequestData(lat, lng, queryMode, apiToken)
 
 }

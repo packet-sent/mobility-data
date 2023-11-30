@@ -11,7 +11,7 @@ import (
 	"github.com/tidwall/gjson"
 )
 
-func RequestData(lat, lng, mode string) interface{} {
+func RequestData(lat, lng, mode, token string) interface{} {
 	var graphQuery string
 	var graphResponse interface{}
 
@@ -35,7 +35,7 @@ func RequestData(lat, lng, mode string) interface{} {
 	graphQuery = strings.Replace(graphQuery, "$lat", lat, -1)
 	graphQuery = strings.Replace(graphQuery, "$lng", lng, -1)
 
-	client := graphql.NewClient("https://flow-api.fluctuo.com/v1?access_token=N83iL4JquB4dy4ceDA0BbtdWk8O89pMQ")
+	client := graphql.NewClient("https://flow-api.fluctuo.com/v1?access_token=" + token)
 
 	// ONLY USED FOR DEBUG PURPOSES
 	//client.Log = func(s string) { log.Println(s) }
